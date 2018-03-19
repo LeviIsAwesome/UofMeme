@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   get 'sessions/new'
   resources :posts do
+    resources :comments
     post :show
   end
 

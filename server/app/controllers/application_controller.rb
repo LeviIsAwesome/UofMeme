@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
+	include Response
+  	include ExceptionHandler
+  	include SessionsHelper
     protect_from_forgery with: :exception
-    include SessionsHelper
-    
-    def hello
-        render html: "Welcome to the UofMeme Home Page. We're under construction."
-    end
 end

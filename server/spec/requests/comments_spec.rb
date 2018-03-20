@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Comments", type: :request do
   # Initialize the test data
-  let!(:post) { create(:post) }
-  let!(:comments) { create_list(:comment, 20, post_id: post.id) }
+  let!(:user) { create(:user) }
+  let(:user_id) { user.id }
+  let!(:post) { create(:post, user_id: user.id) }
   let(:post_id) { post.id }
+  let!(:comments) { create_list(:comment, 20, post_id: post.id) }
   let(:id) { comments.first.id }
   
 

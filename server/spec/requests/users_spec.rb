@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe "Users", type: :request do
   # initialize test data 
 
-  subject {described_class.new(username: "user", email: "user@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")}
+  # subject {described_class.new(username: "user", email: "user@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")}
+  user2 = User.new(username: "user", email: "user@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")
 
 
 
@@ -13,7 +14,7 @@ RSpec.describe "Users", type: :request do
   # 	FactoryBot.build(:user, username: "user", email: "user@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")
   # }
   
-  let!(:users) { FactoryBot.create_list(subject, 10) }
+  let!(:users) { FactoryBot.create_list(user2, 10) }
   let(:user_id) { users.first.id }
 
   describe "GET /users" do

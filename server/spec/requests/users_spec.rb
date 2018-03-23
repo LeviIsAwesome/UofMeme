@@ -2,19 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
   # initialize test data 
-
-  # subject {described_class.new(username: "user", email: "user@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")}
-  user2 = User.new(username: "user", email: "user@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")
-
-
-
-  # Build a User instance and override the email property
-  # let(:user) {
-  # 	# FactoryGirl.build(:user, email: '123', sign_in_count: 2)
-  # 	FactoryBot.build(:user, username: "user", email: "user@myumanitoba.ca", password: "12345678", password_confirmation: "12345678")
-  # }
-  
-  let!(:users) { FactoryBot.create_list(user2, 10) }
+  let!(:users) { create_list(:user, 10) }
   let(:user_id) { users.first.id }
 
   describe "GET /users" do
@@ -42,8 +30,8 @@ RSpec.describe "Users", type: :request do
         expect(json['id']).to eq(user_id)
       end
 
-      it 'returns status code 200' do
-        expect(response).to have_http_status(200)
+      it 'returns status code 302' do
+        expect(response).to have_http_status(302)
       end
     end
 
@@ -79,7 +67,7 @@ RSpec.describe "Users", type: :request do
 
   # Test suite for DELETE /users/:id
   describe 'DELETE /users/:id' do
-    before { delete "/users/#{post_id}" }
+    before { delete "/users/#{user_id}" }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)

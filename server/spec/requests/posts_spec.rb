@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :request do
   # initialize test data 
-  let!(:posts) { create_list(:post, 10) }
+  let(:user) {create(:user)}
+  let(:user_id) { user.id }
+  let!(:posts) { create_list(:post, 10, user_id: user_id) }
   let(:post_id) { posts.first.id }
   
   describe "GET /posts" do

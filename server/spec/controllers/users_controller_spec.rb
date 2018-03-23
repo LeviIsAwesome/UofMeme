@@ -1,22 +1,8 @@
 require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
-    describe "GET #new" do
-        it "returns http success" do
-            get :new
-            expect(response).to be_successful
-            expect(response).to have_http_status(200)
-        end
-    end
     describe "GET #index" do
         it "returns http success" do
             get :index
-            expect(response).to be_successful
-            expect(response).to have_http_status(200)
-        end
-    end
-    describe "show" do
-        it "returns http success" do
-            :show
             expect(response).to be_successful
             expect(response).to have_http_status(200)
         end
@@ -32,13 +18,6 @@ RSpec.describe UsersController, type: :controller do
             post :create, params: params
             expect(response).to be_successful
             expect(response).to have_http_status(200)
-        end
-    end
-    describe "POST #new" do
-        it "returns http success" do
-            post :new
-            expect(response).to be_successful
-            expect(response).to have_http_status(200) 
         end
     end
 end

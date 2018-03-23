@@ -12,11 +12,6 @@ class UsersController < ApplicationController
     	redirect_to root_url 
    	end
 
-   	def update
-    	@user.update(user_params)
-    	head :no_content
-  	end
-
     def create
     	@user = User.new(user_params)
 

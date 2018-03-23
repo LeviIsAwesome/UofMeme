@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   
+
   resources :users
-  get 'sessions/new'
+  
   resources :posts do
     resources :comments
     post :show
   end
 
-  resources :users 
   resources :account_activations, only: [:edit]
 
   resources :likes, only: [:create, :show] do 

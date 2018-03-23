@@ -67,7 +67,7 @@ RSpec.describe "Comments", type: :request do
 
   # Test suite for PUT /posts/:post_id/comments
   describe 'POST /posts/:post_id/comments' do
-    let(:valid_attributes) { { comment: 'A Comment', commenter: 'Luke Shaw' } }
+    let(:valid_attributes) { { commenter: 'Shaw' } }
 
     context 'when request attributes are valid' do
       before { post "/posts/#{post_id}/comments", params: valid_attributes }
@@ -85,14 +85,14 @@ RSpec.describe "Comments", type: :request do
       end
 
       it 'returns a failure message' do
-        expect(response.body).to match(/Validation failed: Commenter or Comment can't be blank/)
+        expect(response.body).to match(/Validation failed: Commenter can't be blank/)
       end
     end
   end
 
   # Test suite for PUT /posts/:post_id/comments/:id
   describe 'PUT /posts/:post_id/comments/:id' do
-    let(:valid_attributes) { { comment: 'A Comment', commenter: 'Shaw' } }
+    let(:valid_attributes) { { commenter: 'Shaw' } }
 
     before { put "/posts/#{post_id}/comments/#{id}", params: valid_attributes }
 
@@ -103,7 +103,6 @@ RSpec.describe "Comments", type: :request do
 
       it 'updates the comment' do
         updated_comment = Comment.find(id)
-        expect(updated_comment.comment).to match(/Comment/)
         expect(updated_comment.commenter).to match(/Shaw/)
       end
     end

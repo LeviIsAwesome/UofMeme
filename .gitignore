@@ -51,6 +51,7 @@ server/.tmp
 
 server/spec/reports/
 server/spec/examples.txt
+server/spec/test_files/
 server/spec/tmp
 server/test/tmp/
 server/test/version_tmp/
